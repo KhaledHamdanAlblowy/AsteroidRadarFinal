@@ -73,4 +73,17 @@ class MainViewModel : ViewModel() {
 			}
 		}
 	}
+	fun getWeekAsters() {
+		viewModelScope.launch(Dispatchers.IO) {
+			val asterList = repo.getWeekAsteroids()
+			if (asterList.isNotEmpty()) _feeds.postValue(asterList)
+		}
+	}
+
+	fun getTodayAster() {
+		viewModelScope.launch(Dispatchers.IO) {
+			val asterList = repo.getCurrentAsteroids()
+			if (asterList.isNotEmpty()) _feeds.postValue(asterList)
+		}
+	}
 }

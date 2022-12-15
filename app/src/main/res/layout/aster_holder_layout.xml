@@ -17,7 +17,6 @@
         <TextView
             android:id="@+id/asteroid_name"
             style="@style/ListTitle"
-            android:contentDescription="asteroid name"
             android:padding="2dp"
             android:text="@{asteriod.name}"
             app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +26,6 @@
         <TextView
             android:id="@+id/asteroid_date"
             style="@style/ListSubTitle"
-            android:contentDescription="@string/close_approach_data_title"
             android:padding="2dp"
             android:text="@{asteriod.closeApproachDate}"
             app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +36,6 @@
             android:id="@+id/asteroid_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="asteroid_status"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

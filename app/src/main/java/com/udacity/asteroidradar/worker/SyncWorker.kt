@@ -16,9 +16,9 @@ import org.json.JSONObject
 // for android > 12 need to use work manager with foreground service
 class SyncWorker(context: Context, workerParameters: WorkerParameters) :
 	CoroutineWorker(context, workerParameters) {
-	
+
 	val asterDao = AppDatabase.getDatabase().asterDao()
-	
+
 	override suspend fun doWork(): Result {
 		val response = AsteriodAPIClient.asteriodApi.getNeoFeed(
 			startDate = getCurrentDate(), endDate = getFutureDate()
@@ -46,14 +46,14 @@ class SyncWorker(context: Context, workerParameters: WorkerParameters) :
 					return@withContext Result.failure()
 				}
 			}
-			
+
 		}
-		
+
 		if (!response.isSuccessful && response.code() > 400) {
 			Log.d("worker", "retry")
 			return Result.retry()
 		}
-		
+
 		return Result.success()
 	}
 }

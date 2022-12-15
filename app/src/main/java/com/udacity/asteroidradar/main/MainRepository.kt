@@ -31,4 +31,10 @@ class MainRepository {
 	
 	@WorkerThread
 	suspend fun getAllAsteroids() = aster.getAsterDataFromToday(getCurrentDate())
+
+	@WorkerThread
+	suspend fun getWeekAsteroids() = aster.getWeekAsteroids()
+
+	@WorkerThread
+	suspend fun getCurrentAsteroids() = aster.getCurrentAsteroids(getCurrentDate())
 }
